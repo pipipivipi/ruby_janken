@@ -18,27 +18,27 @@ if players_hand == program_hand
     exit
   elsif(players_hand == 0 && program_hand ==1)||(players_hand == 1 && program_hand == 2)||(players_hand == 2 && program_hand == 0)
     puts "あなたの勝ち"
-    win_lose = "win"
+    @win_lose = "win"
   else
     puts "あなたの負け"
-    win_lose = "lose"
+    @win_lose = "lose"
   end
   
-  puts "あっち向いて〜"
-  puts "数字を選択してください：[0]上　　[1]右　　[2]下　　[3]左"
+puts "あっち向いて〜"
+puts "数字を選択してください：[0]上　　[1]右　　[2]下　　[3]左"
   
-  players_direction = gets.to_i
-  program_direction = rand(4)
+players_direction = gets.to_i
+program_direction = rand(4)
+
+directions = ["上","右","下","左"]
+puts "あなたの方向：#{directions[players_direction]},相手の方向：#{directions[program_direction]}"
   
-  directions = ["上","右","下","左"]
-  puts "あなたの方向：#{directions[players_direction]},相手の方向：#{directions[program_direction]}"
-  
-  if win_lose = "win" && players_direction == program_direction
-    puts "あなたの勝ち！！！"
-    return false
-  elsif win_lose = "lose" && players_direction == program_direction
-    puts "あなたの負け・・・"
-    return false
+if @win_lose == "win" && players_direction == program_direction
+  puts "あなたの勝ち！！！"
+  return false
+  elsif @win_lose == "lose" && players_direction == program_direction
+  puts "あなたの負け・・・"
+  return false
   else
     return true
   end
